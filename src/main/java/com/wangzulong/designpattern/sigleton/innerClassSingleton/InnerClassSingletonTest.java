@@ -1,8 +1,12 @@
 package com.wangzulong.designpattern.sigleton.innerClassSingleton;
 
 
+import sun.reflect.generics.tree.Tree;
+
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author wangzulong
@@ -51,7 +55,7 @@ class InnerClassSingleton implements Serializable {
 
     private InnerClassSingleton() {
         if (InnerClassHolder.instance != null) {
-            throw new RuntimeException("不允许私自调用构造函数");
+            throw new RuntimeException("单例不允许多个实例");
         }
     }
 
